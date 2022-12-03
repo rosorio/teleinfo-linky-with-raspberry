@@ -87,7 +87,7 @@ def verif_checksum(data, checksum):
 
 
 def main():
-    with serial.Serial(port='/dev/ttyS0', baudrate=1200, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE,
+    with serial.Serial(port='/dev/cuaU0', baudrate=1200, parity=serial.PARITY_NONE, stopbits=serial.STOPBITS_ONE,
                        bytesize=serial.SEVENBITS, timeout=1) as ser:
 
         logging.info("Teleinfo is reading on /dev/ttyS0..")
@@ -103,7 +103,7 @@ def main():
         line = ser.readline()
 
         while True:
-            line_str = line.decode("utf-8")
+            line_str = line.decode("ISO-8859-1")
             logging.debug(line)
 
             try:
